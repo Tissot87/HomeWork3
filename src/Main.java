@@ -53,12 +53,19 @@ public class Main {
 
     int ageOfChild = 9;
 
+    boolean accompanying = false;
+
     if (ageOfChild < 5){
         System.out.println("Если возраст ребенка равен " + ageOfChild + ", то ему нельзя кататься на аттракционе");
     }
     else if (ageOfChild >= 5 && ageOfChild <14) {
-        System.out.println("Если возраст ребенка равен " + ageOfChild +
-                ", то ему  можно кататься на аттракционе в сопровождении взрослого");
+        if (accompanying) {
+            System.out.println("Если возраст ребенка равен " + ageOfChild +
+                    ", то ему  можно кататься на аттракционе в сопровождении взрослого");
+        }
+        else {
+            System.out.println("Взрослого нет. Кататься на атракционе нельзя");
+        }
     }
     else {
         System.out.println("Если возраст ребенка равен " + ageOfChild +
@@ -70,18 +77,13 @@ public class Main {
 
     int capacityOfSeats = 60;
 
-    int capacityOfStandingPlaces = totalCapacity - capacityOfSeats;
+    int countOfPassengers = 59;
 
-    int countOfPassengers = 102;
-
-    if (countOfPassengers < totalCapacity){
-        if (countOfPassengers <= capacityOfSeats) {
-            System.out.println("В вагоне осталось " + (totalCapacity - countOfPassengers) + " мест. Сидячих " +
-                    (capacityOfSeats - countOfPassengers) + " мест. Стоячих " + capacityOfStandingPlaces + " мест");
-        } else System.out.println("Сидячих мест нет. Стоячих осталось " +
-                (capacityOfStandingPlaces - (countOfPassengers - capacityOfSeats)) + " мест");
-    }
-    else {
+    if (countOfPassengers < capacityOfSeats){
+        System.out.println("Есть сидячие и стоячие места");
+    } else if (countOfPassengers >= capacityOfSeats && countOfPassengers < totalCapacity) {
+        System.out.println("Есть только стоячие места");
+    } else {
         System.out.println("В вагоне мест нет");
     }
 
